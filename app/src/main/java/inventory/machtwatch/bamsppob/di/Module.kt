@@ -37,7 +37,7 @@ class Module {
         callAdapterFactory: LiveDataCallAdapterFactory
     ): ApiLiveService {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://skripsi.paguponku.com")
             .client(provideOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(callAdapterFactory)

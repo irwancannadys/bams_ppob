@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjection
+import inventory.machtwatch.bamsppob.R
 import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
 
@@ -29,7 +30,7 @@ abstract class BaseActivity<V: BaseViewModel> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         initToolbar()
         provideViewModel()
-//        initProgressDialog()
+        initProgressDialog()
     }
 
     fun provideViewModel() {
@@ -48,16 +49,16 @@ abstract class BaseActivity<V: BaseViewModel> : AppCompatActivity() {
 
     }
 
-//    private fun initProgressDialog() {
-//        progressDialog = Dialog(this)
-//        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        progressDialog.setContentView(R.layout.progress_dialog)
-//        progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-//        val window = progressDialog.window
-//        window?.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-//        window?.setGravity(Gravity.CENTER)
-//        progressDialog.setCancelable(false)
-//    }
+    private fun initProgressDialog() {
+        progressDialog = Dialog(this)
+        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        progressDialog.setContentView(R.layout.progress_dialog)
+        progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        val window = progressDialog.window
+        window?.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        window?.setGravity(Gravity.CENTER)
+        progressDialog.setCancelable(false)
+    }
 
     @Synchronized
     fun showLoading() {

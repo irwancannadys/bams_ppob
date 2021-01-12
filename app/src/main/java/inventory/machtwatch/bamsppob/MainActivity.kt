@@ -2,8 +2,8 @@ package inventory.machtwatch.bamsppob
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import inventory.machtwatch.bamsppob.feature.PlnActivity
-import inventory.machtwatch.bamsppob.feature.PulsaActivity
+import inventory.machtwatch.bamsppob.feature.validasi.PlnActivity
+import inventory.machtwatch.bamsppob.feature.validasi.PulsaActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

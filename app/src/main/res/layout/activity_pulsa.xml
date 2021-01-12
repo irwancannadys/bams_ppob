@@ -13,7 +13,7 @@
         android:layout_marginBottom="16dp">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/phoneNumberEt"
+            android:id="@+id/et_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -43,6 +43,8 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatButton
+            android:textColor="@color/white"
+            android:id="@+id/btn_lanjut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/border_button"
@@ -51,6 +53,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_marginLeft="8dp"
+            android:id="@+id/tv_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hapus Nomor"

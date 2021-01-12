@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="inventory.machtwatch.bamsppob">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
+        android:name=".base.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,9 +21,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".feature.PulsaActivity"
+        <activity
+            android:name=".feature.validasi.PulsaActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".feature.PlnActivity"
+        <activity
+            android:name=".feature.validasi.PlnActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.listdenom.ListDenominationPulsa"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.checkout.CheckoutActivity"
             android:screenOrientation="portrait" />
     </application>
 

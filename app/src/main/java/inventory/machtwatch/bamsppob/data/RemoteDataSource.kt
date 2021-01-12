@@ -5,18 +5,36 @@ import inventory.machtwatch.bamsppob.ApiLiveService
 import inventory.machtwatch.bamsppob.base.ApiResponse
 import inventory.machtwatch.bamsppob.base.RemoteResource
 import inventory.machtwatch.bamsppob.base.Resource
+import inventory.machtwatch.bamsppob.feature.model.ResponseListDenomination
+import inventory.machtwatch.bamsppob.feature.model.ResponseValidationNumber
+import inventory.machtwatch.bamsppob.feature.model.TestResponse
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(private val liveService: ApiLiveService) {
-
     companion object {
-        private const val LIMIT = 10
+        private const val LIMIT = "check_number"
+    }
+    fun getUser(number: String): LiveData<Resource<ResponseValidationNumber>>{
+        return object : RemoteResource<ResponseValidationNumber>(){
+            override fun createCall(): LiveData<ApiResponse<ResponseValidationNumber>> {
+                return liveService.getValidateNumber(number)
+            }
+        }.asLiveData()
     }
 
-    fun getUser(user: String, limit: Int = LIMIT): LiveData<Resource<Any>>{
-        return object : RemoteResource<Any>(){
-            override fun createCall(): LiveData<ApiResponse<Any>> {
-                return liveService.getUserResponse(user)
+    fun getKlasemen(): LiveData<Resource<TestResponse>>{
+        return object : RemoteResource<TestResponse>(){
+            override fun createCall(): LiveData<ApiResponse<TestResponse>> {
+                return liveService.getKlasemen()
+            }
+        }.asLiveData()
+    }
+
+
+    fun getListPulsa(operator: String): LiveData<Resource<ResponseListDenomination>>{
+        return object : RemoteResource<ResponseListDenomination>(){
+            override fun createCall(): LiveData<ApiResponse<ResponseListDenomination>> {
+                return liveService.getListPulsa(operator)
             }
         }.asLiveData()
     }
