@@ -12,6 +12,8 @@ import inventory.machtwatch.bamsppob.feature.checkout.CheckoutActivity
 import inventory.machtwatch.bamsppob.feature.checkout.CheckoutViewModel
 import inventory.machtwatch.bamsppob.feature.listdenom.ListDenomPulsaViewModel
 import inventory.machtwatch.bamsppob.feature.listdenom.ListDenominationPulsa
+import inventory.machtwatch.bamsppob.feature.validasi.PlnActivity
+import inventory.machtwatch.bamsppob.feature.validasi.PlnValidasiViewModel
 import inventory.machtwatch.bamsppob.feature.validasi.PulsaActivity
 import inventory.machtwatch.bamsppob.feature.validasi.PulsaValidasiViewModel
 import javax.inject.Singleton
@@ -46,6 +48,14 @@ abstract class BuilderModules {
 
     @ContributesAndroidInjector
     abstract fun contributeListDenominationPulsa(): ListDenominationPulsa
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PlnValidasiViewModel::class)
+    abstract fun bindPlnValidasiViewModel(pulsaValidasiViewModel: PlnValidasiViewModel) : ViewModel
+
+    @ContributesAndroidInjector
+    abstract fun contributePlnActivity(): PlnActivity
 
     @Binds
     @IntoMap

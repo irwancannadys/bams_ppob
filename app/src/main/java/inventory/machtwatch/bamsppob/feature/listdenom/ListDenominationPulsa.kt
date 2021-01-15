@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import inventory.machtwatch.bamsppob.R
 import inventory.machtwatch.bamsppob.base.BaseActivity
 import inventory.machtwatch.bamsppob.base.Status
+import inventory.machtwatch.bamsppob.feature.checkout.CheckoutActivity
 import inventory.machtwatch.bamsppob.feature.model.DenomList
 import kotlinx.android.synthetic.main.activity_list_denom_pulsa.*
 
@@ -57,7 +58,7 @@ class ListDenominationPulsa : BaseActivity<ListDenomPulsaViewModel>() {
         rv_list_denom.setHasFixedSize(true)
         val adapter = ListDenomPulsaAdapter(data, object : ListDenomPulsaAdapter.OnPulsaClick{
             override fun onItemClick(data: DenomList) {
-                Log.d("datanya", data.pulsa_nominal)
+                CheckoutActivity.startToCheckout(this@ListDenominationPulsa, data, number)
             }
         })
         rv_list_denom.adapter = adapter

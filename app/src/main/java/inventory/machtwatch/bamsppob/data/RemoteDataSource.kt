@@ -5,6 +5,7 @@ import inventory.machtwatch.bamsppob.ApiLiveService
 import inventory.machtwatch.bamsppob.base.ApiResponse
 import inventory.machtwatch.bamsppob.base.RemoteResource
 import inventory.machtwatch.bamsppob.base.Resource
+import inventory.machtwatch.bamsppob.feature.model.CheckoutResponse
 import inventory.machtwatch.bamsppob.feature.model.ResponseListDenomination
 import inventory.machtwatch.bamsppob.feature.model.ResponseValidationNumber
 import inventory.machtwatch.bamsppob.feature.model.TestResponse
@@ -22,19 +23,26 @@ class RemoteDataSource @Inject constructor(private val liveService: ApiLiveServi
         }.asLiveData()
     }
 
-    fun getKlasemen(): LiveData<Resource<TestResponse>>{
-        return object : RemoteResource<TestResponse>(){
-            override fun createCall(): LiveData<ApiResponse<TestResponse>> {
-                return liveService.getKlasemen()
-            }
-        }.asLiveData()
-    }
-
-
     fun getListPulsa(operator: String): LiveData<Resource<ResponseListDenomination>>{
         return object : RemoteResource<ResponseListDenomination>(){
             override fun createCall(): LiveData<ApiResponse<ResponseListDenomination>> {
                 return liveService.getListPulsa(operator)
+            }
+        }.asLiveData()
+    }
+
+    fun getCheckout(operator: String, phoneNumber: String): LiveData<Resource<CheckoutResponse>>{
+        return object : RemoteResource<CheckoutResponse>(){
+            override fun createCall(): LiveData<ApiResponse<CheckoutResponse>> {
+                return liveService.getCheckout(operator, phoneNumber)
+            }
+        }.asLiveData()
+    }
+
+    fun getPLNListPrice(): LiveData<Resource<ResponseListDenomination>>{
+        return object : RemoteResource<ResponseListDenomination>(){
+            override fun createCall(): LiveData<ApiResponse<ResponseListDenomination>> {
+                return liveService.getPricePLn()
             }
         }.asLiveData()
     }

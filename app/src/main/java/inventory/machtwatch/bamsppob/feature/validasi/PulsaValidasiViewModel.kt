@@ -15,16 +15,8 @@ class PulsaValidasiViewModel @Inject constructor(private val data: RemoteDataSou
 
     val triggerValidation = MutableLiveData<String>()
 
-    val triggerKlasemen = MutableLiveData<Boolean>()
-
-
     val getValidation: LiveData<Resource<ResponseValidationNumber>>
         get() = Transformations.switchMap(triggerValidation) {
             data.getUser(it)
-        }
-
-    val getKlasemen: LiveData<Resource<TestResponse>>
-        get() = Transformations.switchMap(triggerKlasemen) {
-            data.getKlasemen()
         }
 }
