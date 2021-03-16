@@ -100,7 +100,6 @@ class PlnPostPaidInquiryActivity : BaseActivity<CheckoutViewModel>() {
                 Status.SUCCESS -> {
                     hideLoading()
                     resource.data?.let {
-                        Log.d("logbre", it.data.message)
                         showDialogStatus(it.data.message)
                     }
                 }
