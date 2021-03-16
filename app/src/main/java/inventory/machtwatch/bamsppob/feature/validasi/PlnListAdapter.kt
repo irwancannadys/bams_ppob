@@ -18,7 +18,7 @@ class PlnListAdapter(private val list: List<DenomList>, val click: PlnItemClickL
 
     override fun getItemCount(): Int = list.size
 
-    override fun onBindViewHolder(holder: PlnListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(list[position])
         holder.itemView.setOnClickListener {
             click.onItemclick(list[position])

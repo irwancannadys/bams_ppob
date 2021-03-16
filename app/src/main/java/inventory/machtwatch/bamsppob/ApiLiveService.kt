@@ -2,10 +2,7 @@ package inventory.machtwatch.bamsppob
 
 import androidx.lifecycle.LiveData
 import inventory.machtwatch.bamsppob.base.ApiResponse
-import inventory.machtwatch.bamsppob.feature.model.CheckoutResponse
-import inventory.machtwatch.bamsppob.feature.model.ResponseListDenomination
-import inventory.machtwatch.bamsppob.feature.model.ResponseValidationNumber
-import inventory.machtwatch.bamsppob.feature.model.TestResponse
+import inventory.machtwatch.bamsppob.feature.model.*
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -29,5 +26,23 @@ interface ApiLiveService {
     ): LiveData<ApiResponse<CheckoutResponse>>
 
     @GET("pln-prices/")
-    fun getPricePLn() : LiveData<ApiResponse<ResponseListDenomination>>
+    fun getPricePLn(): LiveData<ApiResponse<ResponseListDenomination>>
+
+    @GET("histories/")
+    fun getHistory(): LiveData<ApiResponse<ResponseHistoryTransaction>>
+
+    @GET("pln-postpaid/")
+    fun getInquiryPlnPostPaid(@Query("no_meter") noMeter: String): LiveData<ApiResponse<PlnPostPaidResponse>>
+
+    @GET("pln-postpaid-pay/")
+    fun getCheckoutPLNPostPaid(
+        @Query("ref_id") refId: String,
+        @Query("tr_id") trId: String
+    ): LiveData<ApiResponse<PlnPostPaidCheckout>>
+
+    @GET("data-prices/")
+    fun getListPaketData(@Query("operator_data") operatorData: String): LiveData<ApiResponse<PaketDataResponse>>
+
+    @GET("balance")
+    fun getBalance() : LiveData<ApiResponse<SaldoResponse>>
 }

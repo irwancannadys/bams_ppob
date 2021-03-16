@@ -4,14 +4,29 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import inventory.machtwatch.bamsppob.base.BaseActivity
+import inventory.machtwatch.bamsppob.base.Status
 import inventory.machtwatch.bamsppob.feature.checkout.CheckoutActivity
+import inventory.machtwatch.bamsppob.feature.history.HistoryActivity
+import inventory.machtwatch.bamsppob.feature.history.HistoryAdapter
+import inventory.machtwatch.bamsppob.feature.history.HistoryViewModel
+import inventory.machtwatch.bamsppob.feature.model.DataTransaction
 import inventory.machtwatch.bamsppob.feature.model.DenomList
+import inventory.machtwatch.bamsppob.feature.validasi.PaketDataActivity
 import inventory.machtwatch.bamsppob.feature.validasi.PlnActivity
+import inventory.machtwatch.bamsppob.feature.validasi.PlnPostPaidActivity
 import inventory.machtwatch.bamsppob.feature.validasi.PulsaActivity
+import inventory.machtwatch.bamsppob.utils.UtilsApp
+import kotlinx.android.synthetic.main.activity_history_transaction.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<HistoryViewModel>() {
+
+    override fun initToolbar() {
+
+    }
 
     companion object {
         const val DATA_CHECKOUT = "data"
@@ -28,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initObserver()
+        mViewModel?.triggerSaldo?.value = true
         initRouterFeature()
     }
 
@@ -36,8 +53,40 @@ class MainActivity : AppCompatActivity() {
             PulsaActivity.startToPulsaActivity(this)
         }
 
+        rl_paket_data.setOnClickListener {
+            PaketDataActivity.startToPaketDataActivity(this)
+        }
+
         rl_pln.setOnClickListener {
             PlnActivity.startToPLNActivity(this)
         }
+
+        rl_pln_abudemen.setOnClickListener {
+            PlnPostPaidActivity.startToPlnAbodemenActivity(this)
+        }
+
+        rl_history.setOnClickListener {
+            HistoryActivity.startToHistory(this)
+        }
+    }
+
+    private fun initObserver() {
+        mViewModel?.getSaldo?.observe(this, Observer { resource ->
+            when (resource.status) {
+                Status.LOADING -> {
+                    showLoading()
+                }
+                Status.SUCCESS -> {
+                    hideLoading()
+                    resource.data?.let {
+                        tv_saldo.text =  UtilsApp.formatPrice(it.data.balance)
+                    }
+                }
+
+                Status.ERROR -> {
+                    hideLoading()
+                }
+            }
+        })
     }
 }

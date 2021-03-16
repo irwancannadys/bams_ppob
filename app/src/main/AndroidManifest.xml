@@ -34,6 +34,25 @@
         <activity
             android:name=".feature.checkout.CheckoutActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.history.HistoryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.validasi.PaketDataActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.validasi.PlnPostPaidActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".feature.listdenom.ListDenomPaketData"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".feature.validasi.PlnPostPaidInquiryActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

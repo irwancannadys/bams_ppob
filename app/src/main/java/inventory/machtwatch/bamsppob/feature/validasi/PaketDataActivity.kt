@@ -3,37 +3,30 @@ package inventory.machtwatch.bamsppob.feature.validasi
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import inventory.machtwatch.bamsppob.R
 import inventory.machtwatch.bamsppob.base.BaseActivity
 import inventory.machtwatch.bamsppob.base.Status
+import inventory.machtwatch.bamsppob.feature.listdenom.ListDenomPaketData
 import inventory.machtwatch.bamsppob.feature.listdenom.ListDenominationPulsa
 import kotlinx.android.synthetic.main.activity_pulsa.*
 
-class PulsaActivity : BaseActivity<PulsaValidasiViewModel>() {
+class PaketDataActivity : BaseActivity<PulsaValidasiViewModel>() {
 
     private var number = ""
-
-    companion object {
-        fun startToPulsaActivity(activity: Activity) {
-            val intent = Intent(activity, PulsaActivity::class.java)
-            activity.startActivity(intent)
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pulsa)
+
         initObserver()
 
         btn_lanjut.setOnClickListener {
-             number = et_number.text.toString()
+            number = et_number.text.toString()
             if (number.isEmpty()) {
-                Toast.makeText(this, "Please fill", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Nomor Telepon Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
             } else {
                 mViewModel?.triggerValidation?.value = number
             }
@@ -42,6 +35,7 @@ class PulsaActivity : BaseActivity<PulsaValidasiViewModel>() {
         tv_clear.setOnClickListener {
             et_number.setText("")
         }
+
     }
 
     private fun initObserver() {
@@ -53,11 +47,7 @@ class PulsaActivity : BaseActivity<PulsaValidasiViewModel>() {
                 Status.SUCCESS -> {
                     hideLoading()
                     resources.data?.let {
-                        ListDenominationPulsa.startToListOperator(
-                            this,
-                            it.data.operator,
-                            number
-                        )
+                        ListDenomPaketData.startToListPaketData(this, it.data.operator_data, number)
                     }
                 }
 
@@ -71,7 +61,7 @@ class PulsaActivity : BaseActivity<PulsaValidasiViewModel>() {
 
     override fun initToolbar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Pulsa"
+        supportActionBar?.title = "Paket Data"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -82,5 +72,12 @@ class PulsaActivity : BaseActivity<PulsaValidasiViewModel>() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    companion object {
+        fun startToPaketDataActivity(activity: Activity) {
+            val intent = Intent(activity, PaketDataActivity::class.java)
+            activity.startActivity(intent)
+        }
     }
 }

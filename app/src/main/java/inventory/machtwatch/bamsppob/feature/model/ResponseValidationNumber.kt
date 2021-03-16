@@ -6,4 +6,4 @@ data class ResponseValidationNumber(
     val data: DataOperator
 )
 
-data class DataOperator(val operator: String)
+data class DataOperator(val operator: String, val operator_data: String)

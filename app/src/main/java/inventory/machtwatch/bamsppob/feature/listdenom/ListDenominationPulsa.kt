@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import inventory.machtwatch.bamsppob.R
 import inventory.machtwatch.bamsppob.base.BaseActivity
@@ -33,8 +34,19 @@ class ListDenominationPulsa : BaseActivity<ListDenomPulsaViewModel>() {
     }
 
     override fun initToolbar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "List Pulsa"
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
     private fun initObserver() {
         mViewModel?.getListPulsa?.observe(this, Observer { resources ->
             when(resources.status) {

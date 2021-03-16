@@ -6,16 +6,17 @@ import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
+import inventory.machtwatch.bamsppob.MainActivity
 import inventory.machtwatch.bamsppob.base.ProjectViewModelFactory
 import inventory.machtwatch.bamsppob.base.ViewModelKey
 import inventory.machtwatch.bamsppob.feature.checkout.CheckoutActivity
 import inventory.machtwatch.bamsppob.feature.checkout.CheckoutViewModel
+import inventory.machtwatch.bamsppob.feature.history.HistoryActivity
+import inventory.machtwatch.bamsppob.feature.history.HistoryViewModel
+import inventory.machtwatch.bamsppob.feature.listdenom.ListDenomPaketData
 import inventory.machtwatch.bamsppob.feature.listdenom.ListDenomPulsaViewModel
 import inventory.machtwatch.bamsppob.feature.listdenom.ListDenominationPulsa
-import inventory.machtwatch.bamsppob.feature.validasi.PlnActivity
-import inventory.machtwatch.bamsppob.feature.validasi.PlnValidasiViewModel
-import inventory.machtwatch.bamsppob.feature.validasi.PulsaActivity
-import inventory.machtwatch.bamsppob.feature.validasi.PulsaValidasiViewModel
+import inventory.machtwatch.bamsppob.feature.validasi.*
 import javax.inject.Singleton
 
 @Module
@@ -30,8 +31,8 @@ abstract class BuilderModules {
 //    @ViewModelKey(MainViewModel::class)
 //    abstract fun bindMainViewModel(mainViewModel: MainViewModel) : ViewModel
 //
-//    @ContributesAndroidInjector
-//    abstract fun contributeMainActivity(): MainActivity
+    @ContributesAndroidInjector
+    abstract fun contributeMainActivity(): MainActivity
 
     @Binds
     @IntoMap
@@ -39,7 +40,7 @@ abstract class BuilderModules {
     abstract fun bindMainViewModel(pulsaValidasiViewModel: PulsaValidasiViewModel) : ViewModel
 
     @ContributesAndroidInjector
-    abstract fun contributeMainActivity(): PulsaActivity
+    abstract fun contributePulsaActivity(): PulsaActivity
 
     @Binds
     @IntoMap
@@ -64,5 +65,25 @@ abstract class BuilderModules {
 
     @ContributesAndroidInjector
     abstract fun contributeCheckoutActivity(): CheckoutActivity
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HistoryViewModel::class)
+    abstract fun bindHistoryViewModel(historyViewModel: HistoryViewModel) : ViewModel
+
+    @ContributesAndroidInjector
+    abstract fun contributeHistoryActivity(): HistoryActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributePaketDataActivity(): PaketDataActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributePlnPostPaid(): PlnPostPaidActivity
+
+    @ContributesAndroidInjector
+    abstract fun contributeListDenomPaketData(): ListDenomPaketData
+
+    @ContributesAndroidInjector
+    abstract fun contributePlnPostPaidInquiryActivity(): PlnPostPaidInquiryActivity
 
 }

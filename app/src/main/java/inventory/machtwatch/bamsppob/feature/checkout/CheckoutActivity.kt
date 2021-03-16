@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import inventory.machtwatch.bamsppob.MainActivity
 import inventory.machtwatch.bamsppob.R
@@ -100,5 +101,17 @@ class CheckoutActivity : BaseActivity<CheckoutViewModel>() {
     }
 
     override fun initToolbar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Pembayaran"
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
