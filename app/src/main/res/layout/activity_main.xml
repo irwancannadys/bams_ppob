@@ -8,42 +8,42 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/cardview_light_background"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:padding="16dp">
 
             <TextView
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:text="Saldo anda : "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="Saldo anda : "
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_saldo"
-                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                tools:text="Rp.200.000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textStyle="bold"
+                tools:text="Rp.200.000" />
 
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -59,7 +59,6 @@
                     app:srcCompat="@drawable/ic_info" />
 
                 <TextView
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -68,19 +67,20 @@
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/iv_pulsa"
                     android:text="Info"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -96,7 +96,6 @@
                     app:srcCompat="@drawable/ic_pulsa_home" />
 
                 <TextView
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -105,19 +104,20 @@
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/iv_info"
                     android:text="Pulsa"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -133,7 +133,6 @@
                     app:srcCompat="@drawable/paket" />
 
                 <TextView
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -142,19 +141,20 @@
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/iv_paket_data"
                     android:text="Paket Data"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -170,7 +170,6 @@
                     app:srcCompat="@drawable/ic_listrik_home" />
 
                 <TextView
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -178,20 +177,21 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/iv_pln"
-                    android:text="PLN"
-                    android:textColor="@color/black" />
+                    android:text="PLN Pra Bayar (TOKEN)"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -207,7 +207,6 @@
                     app:srcCompat="@drawable/ic_listrik_home" />
 
                 <TextView
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -215,21 +214,22 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/iv_pln_abudemen"
-                    android:text="PLN Abodemen"
-                    android:textColor="@color/black" />
+                    android:text="PLN Pasca Bayar"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="30dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="4dp">
 
             <RelativeLayout
@@ -245,7 +245,6 @@
                     app:srcCompat="@drawable/ic_history" />
 
                 <TextView
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -254,7 +253,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@+id/iv_history"
                     android:text="History"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 

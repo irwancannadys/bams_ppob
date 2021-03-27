@@ -36,7 +36,7 @@
             android:layout_marginTop="-4dp"
             android:background="#ffffff"
             android:padding="4dp"
-            android:text="Masukan No Abodemen" />
+            android:text="Nomor ID Pelanggan" />
     </FrameLayout>
 
     <LinearLayout

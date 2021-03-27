@@ -13,10 +13,7 @@ import inventory.machtwatch.bamsppob.feature.history.HistoryAdapter
 import inventory.machtwatch.bamsppob.feature.history.HistoryViewModel
 import inventory.machtwatch.bamsppob.feature.model.DataTransaction
 import inventory.machtwatch.bamsppob.feature.model.DenomList
-import inventory.machtwatch.bamsppob.feature.validasi.PaketDataActivity
-import inventory.machtwatch.bamsppob.feature.validasi.PlnActivity
-import inventory.machtwatch.bamsppob.feature.validasi.PlnPostPaidActivity
-import inventory.machtwatch.bamsppob.feature.validasi.PulsaActivity
+import inventory.machtwatch.bamsppob.feature.validasi.*
 import inventory.machtwatch.bamsppob.utils.UtilsApp
 import kotlinx.android.synthetic.main.activity_history_transaction.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -49,6 +46,11 @@ class MainActivity : BaseActivity<HistoryViewModel>() {
     }
 
     private fun initRouterFeature() {
+
+        rl_info.setOnClickListener {
+            startActivity(Intent(this, InfoActivity::class.java))
+        }
+
         rl_pulsa.setOnClickListener {
             PulsaActivity.startToPulsaActivity(this)
         }
